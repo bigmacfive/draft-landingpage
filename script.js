@@ -1,3 +1,9 @@
+import { inject } from "@vercel/analytics"
+
+inject({
+    mode: dev ? 'development' : 'production',
+  });
+
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.demo-video');
     const playBtn = document.querySelector('.play-btn');
