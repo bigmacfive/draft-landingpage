@@ -1,6 +1,6 @@
-import { inject } from "@vercel/analytics"
+import { inject, track } from "@vercel/analytics"
 
- 
+// analytics 초기화
 inject();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pauseBtn.addEventListener('click', () => {
         video.pause();
+    });
+
+    // 다운로드 버튼 클릭 이벤트 추적
+    const downloadBtn = document.querySelector('.download-btn');
+    downloadBtn.addEventListener('click', () => {
+        track('download_button_clicked');
     });
 });
 
