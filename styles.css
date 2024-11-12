@@ -379,3 +379,38 @@ h1 {
     max-width: 800px;
     margin: 0 auto;
 }
+
+.product-hunt-badge {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.product-hunt-badge img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 768px) {
+    .product-hunt-badge {
+        bottom: 1.5rem;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .product-hunt-badge img {
+        width: 200px;
+    }
+}
+
+/* 더 작은 화면 대응 */
+@media screen and (max-width: 480px) {
+    .product-hunt-badge img {
+        width: 150px;
+    }
+}
