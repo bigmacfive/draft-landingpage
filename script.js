@@ -5,8 +5,18 @@ inject();
 
 // Mixpanel 초기화
 mixpanel.init('7ba52dd28b07d60d2d6ad6bb3cdad23c', {
-    debug: false,  // 개발 중에는 true로 설정하고, 프로덕션에서는 false로 변경하세요
+    debug: true,  // 개발 중에는 true로 설정하고, 프로덕션에서는 false로 변경하세요
     track_pageview: true  // 자동으로 페이지뷰 추적
+});
+
+// Mixpanel 초기화 직후에 페이지뷰 이벤트 추적
+mixpanel.track('Page View', {
+    'language': document.documentElement.lang || 'ko',
+    'referrer': document.referrer,
+    'platform': 'web',
+    'device_type': /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile/.test(navigator.userAgent) ? 'mobile' : 'desktop',
+    'browser': navigator.userAgent,
+    'screen_size': `${window.innerWidth}x${window.innerHeight}`
 });
 
 document.addEventListener('DOMContentLoaded', () => {
