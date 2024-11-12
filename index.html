@@ -193,5 +193,39 @@
             console.log(`이 페이지의 조회수: ${pageViews}`);
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 고유 방문자 ID 생성 (UUID 형식)
+            const generateUUID = () => {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+                    const r = Math.random() * 16 | 0;
+                    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            };
+
+            // 로컬 스토리지에서 방문자 ID 가져오기
+            let visitorId = localStorage.getItem('visitorId');
+
+            // 방문자 ID가 없으면 새로 생성
+            if (!visitorId) {
+                visitorId = generateUUID();
+                localStorage.setItem('visitorId', visitorId);
+            }
+
+            // 로컬 스토리지에서 유니크 비지터 수 가져오기
+            let uniqueVisitors = localStorage.getItem('uniqueVisitors') ? JSON.parse(localStorage.getItem('uniqueVisitors')) : [];
+
+            // 유니크 비지터 목록에 현재 방문자 ID가 없으면 추가
+            if (!uniqueVisitors.includes(visitorId)) {
+                uniqueVisitors.push(visitorId);
+                localStorage.setItem('uniqueVisitors', JSON.stringify(uniqueVisitors));
+            }
+
+            // 유니크 비지터 수 출력
+            console.log(`uv: ${uniqueVisitors.length}`);
+        });
+    </script>
 </body>
 </html>
