@@ -5,7 +5,7 @@ inject();
 
 // Mixpanel 초기화
 mixpanel.init('7ba52dd28b07d60d2d6ad6bb3cdad23c', {
-    debug: true,  // 개발 중에는 true로 설정하고, 프로덕션에서는 false로 변경하세요
+    debug: false,  // 개발 중에는 true로 설정하고, 프로덕션에서는 false로 변경하세요
     track_pageview: true  // 자동으로 페이지뷰 추적
 });
 
