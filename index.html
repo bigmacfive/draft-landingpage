@@ -177,5 +177,21 @@
             'platform': 'web'
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 로컬 스토리지에서 조회수 가져오기
+            let pageViews = localStorage.getItem('pageViews') ? parseInt(localStorage.getItem('pageViews')) : 0;
+
+            // 조회수 증가
+            pageViews += 1;
+
+            // 로컬 스토리지에 업데이트된 조회수 저장
+            localStorage.setItem('pageViews', pageViews);
+
+            // 조회수 출력 (콘솔에 출력하거나 원하는 위치에 표시)
+            console.log(`이 페이지의 조회수: ${pageViews}`);
+        });
+    </script>
 </body>
 </html>
