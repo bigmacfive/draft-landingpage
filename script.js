@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 콘솔에 디버그 메시지 추가
-    console.log('Initializing Mixpanel...');
-    
-    // Mixpanel 초기화
-    mixpanel.init('7ba52dd28b07d60d2d6ad6bb3cdad23c', {
-        debug: true,
-        track_pageview: true
-    });
+    try {
+        // 페이지 로드 시 이벤트 트래킹
+        mixpanel.track('Page View', {
+            'language': document.documentElement.lang || 'ko',
+            'platform': 'web',
+            'referrer': document.referrer
+        });
 
-    // 테스트 이벤트 발송
-    mixpanel.track('Test Event', {
-        'test': 'value'
-    });
+        // 다운로드 버튼 클릭 트래킹
+        const downloadBtn = document.querySelector('.download-btn');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', () => {
+                mixpanel.track('Download Button Clicked', {
+                    'language': document.documentElement.lang || 'ko',
+                    'timestamp': new Date().toISOString()
+                });
+            });
+        }
 
-    console.log('Mixpanel initialized');
+    } catch (error) {
+        console.error('Mixpanel tracking error:', error);
+    }
 });
