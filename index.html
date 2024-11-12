@@ -20,17 +20,14 @@
         mixpanel.init('7ba52dd28b07d60d2d6ad6bb3cdad23c', {
             debug: true,
             track_pageview: true
-        }, 'draft');
+        });
 
-        // 초기화 완료 대기
-        setTimeout(() => {
-            // 페이지뷰 이벤트
-            mixpanel.draft.track('Page View', {
-                'page': window.location.pathname,
-                'language': document.documentElement.lang || 'ko',
-                'referrer': document.referrer
-            });
-        }, 1000);
+        // 페이지뷰 이벤트
+        mixpanel.track('Page View', {
+            'page': window.location.pathname,
+            'language': document.documentElement.lang || 'ko',
+            'referrer': document.referrer
+        });
     </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
