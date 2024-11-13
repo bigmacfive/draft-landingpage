@@ -380,52 +380,13 @@ h1 {
     margin: 0 auto;
 }
 
-.product-hunt-badge {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.product-hunt-badge img {
-    width: 250px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 모바일 대응 */
-@media screen and (max-width: 768px) {
-    .product-hunt-badge {
-        bottom: 1.5rem;
-        right: 50%;
-        transform: translateX(50%);
-    }
-    
-    .product-hunt-badge img {
-        width: 200px;
-    }
-}
-
-/* 더 작은 화면 대응 */
-@media screen and (max-width: 480px) {
-    .product-hunt-badge img {
-        width: 150px;
-    }
-}
-
 .product-hunt-fab {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
     z-index: 1000;
-    background: white;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    border-radius: 8px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -434,5 +395,35 @@ h1 {
 
 .product-hunt-fab:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
+}
+
+.product-hunt-fab img {
+    width: 250px;
+    height: 54px;
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 768px) {
+    .product-hunt-fab {
+        bottom: 1.5rem;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .product-hunt-fab:hover {
+        transform: translateX(50%) translateY(-2px);
+    }
+    
+    .product-hunt-fab img {
+        width: 200px;
+        height: auto;
+    }
+}
+
+/* 더 작은 화면 대응 */
+@media screen and (max-width: 480px) {
+    .product-hunt-fab img {
+        width: 150px;
+    }
 }
